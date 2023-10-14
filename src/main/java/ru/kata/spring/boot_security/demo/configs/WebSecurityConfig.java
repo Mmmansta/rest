@@ -32,22 +32,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/index").permitAll()
-                .antMatchers("/", "/admin").hasRole("admin")
-                .antMatchers("/", "/user").hasRole("user")
+//                .antMatchers("/", "/admin").hasRole("ADMIN")
+//                .antMatchers("/", "/user").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().successHandler(successUserHandler)
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll()
-                .and().formLogin()
-                .successHandler(new AuthenticationSuccessHandler() {
-                    @Override
-                    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-                        response.sendRedirect("/admin/home.html");
-                    }
-                });
+                .permitAll();
+
+
     }
 
     // аутентификация inMemory

@@ -14,15 +14,15 @@ public class HardcodeDetailsService implements UserDetailsService {
         switch (username){
             case "admin":
                 return new User(List.of(
-                        new Role("admin"),
-                        new Role("user")
+                        new Role("ROLE_ADMIN"),
+                        new Role("ROLE_USER")
                 ),
                         "admin",
                         "admin"
                 );
             case "user":
                 return new User(List.of(
-                        new Role("user")
+                        new Role("ROLE_USER")
                 ),
                         "user",
                         "user"
