@@ -47,7 +47,7 @@ public class AppConfig {
     public LocalContainerEntityManagerFactoryBean getEntityManagerFactory(){
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(getDataSource());
-        em.setPackagesToScan("web");
+        em.setPackagesToScan("ru.kata.spring.boot_security.demo.model");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(getHibernateProperties());
         return em;

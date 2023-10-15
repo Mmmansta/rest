@@ -24,8 +24,17 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
+    public User getUserByName(String name) {
+        return entityManager.createQuery("select u from User u where u.name = '" + name + "'", User.class).getSingleResult();
+    }
+
+    @Override
     public void addUser(User user) {
         entityManager.persist(user);
+    }
+
+    public void deleteAll(){
+        entityManager.createQuery("delete from User").executeUpdate();
     }
 
     @Override
