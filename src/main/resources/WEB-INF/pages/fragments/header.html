@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    ...
+</head>
+<body>
+
+<div th:fragment="header" style="padding-bottom: 20px">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <p class="navbar-brand" style="padding-left: 20px" th:utext="'<b>' + ${authentication.getEmail()} + '</b>' + ' with roles: ' + ${authentication.getAuthorities()}"></p>
+        <div class="collapse navbar-collapse w-100">&nbsp;</div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link"  style="padding-right: 20px" th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
